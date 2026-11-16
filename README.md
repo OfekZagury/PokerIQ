@@ -63,7 +63,7 @@ Production build: `npm run build` (output in `dist/`).
 ```
 ├── src/
 │   ├── Pages/          # Home, Login and the 24 lesson pages (Game1 … Game24)
-│   ├── Components/     # shared UI: playing cards, poker table, progress cards, timer
+│   ├── components/     # shared UI: playing cards, poker table, progress cards, timer
 │   ├── lib/            # analytics wrapper, helpers
 │   ├── hooks/          # useActiveStopwatch (active time per lesson)
 │   └── services/       # API client

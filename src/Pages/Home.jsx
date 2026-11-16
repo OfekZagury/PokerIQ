@@ -9,7 +9,7 @@ import Welcome from "../components/home/Welcome";
 import { motion, AnimatePresence } from "framer-motion";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
-import DailyUnlockTimer from "@/Components/DailyUnlockTimer";
+import DailyUnlockTimer from "@/components/DailyUnlockTimer";
 import { track } from "@/lib/analytics";
 import { DEMO_MODE } from "@/lib/demo";
 
