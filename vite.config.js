@@ -8,6 +8,8 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 
 export default defineConfig({
+  // "/" locally; the GitHub Pages workflow sets VITE_BASE=/PokerIQ/
+  base: process.env.VITE_BASE || "/",
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: { "@": path.resolve(__dirname, "./src") }

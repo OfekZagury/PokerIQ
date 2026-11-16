@@ -1,6 +1,9 @@
+import { DEMO_MODE } from "@/lib/demo";
+import { DemoUserService } from "./demoUser";
+
 const API = import.meta.env.VITE_API_BASE || "http://localhost:5174";
 
-export const UserService = {
+const ApiUserService = {
   async me() {
     const r = await fetch(`${API}/me`, { credentials: "include" });
     if (!r.ok) throw new Error("Not logged in");
@@ -64,3 +67,6 @@ export const UserService = {
     return r.json();
   },
 };
+
+// Demo builds keep everything in the browser; regular builds talk to the API server.
+export const UserService = DEMO_MODE ? DemoUserService : ApiUserService;

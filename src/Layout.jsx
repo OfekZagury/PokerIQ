@@ -4,6 +4,7 @@ import { UserService as User } from "@/services/user" ;
 import { createPageUrl } from "@/utils";
 import { Button } from "@/components/ui/button";
 import { Spade, Heart, Diamond, Club, LogOut } from "lucide-react";
+import { DEMO_MODE } from "@/lib/demo";
 
 export default function Layout({ children }) {
   const location = useLocation();
@@ -54,6 +55,11 @@ export default function Layout({ children }) {
       />
 
       <div className="relative z-10 flex flex-col min-h-screen">
+        {DEMO_MODE && (
+          <div className="bg-yellow-500/90 px-4 py-2 text-center text-sm font-semibold text-black">
+            Live demo · all 24 lessons are unlocked and your progress is saved in this browser only
+          </div>
+        )}
         {/* Header */}
         <header className="bg-black/20 backdrop-blur-md border-b border-green-700/30">
           <div className="max-w-6xl mx-auto px-4 py-4 flex justify-between items-center">
@@ -84,7 +90,7 @@ export default function Layout({ children }) {
                   className="border-red-500/50 text-red-300 hover:bg-red-500/20 hover:text-red-200 hover:border-red-500/70"
                 >
                   <LogOut className="w-4 h-4 mr-2" />
-                  Logout
+                  {DEMO_MODE ? "Reset progress" : "Logout"}
                 </Button>
               </div>
             )}

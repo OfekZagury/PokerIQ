@@ -4,6 +4,8 @@ An interactive web app that teaches poker strategy through **24 bite-sized, gami
 
 <!-- TODO: add screenshots or a short GIF here, e.g. docs/home.png and docs/lesson.gif -->
 
+**Live demo:** https://ofekzagury.github.io/PokerIQ/ (all lessons unlocked, progress saved in your browser)
+
 ## Features
 
 - **Structured curriculum** – 24 lessons in 11 chapters: hand rankings, betting flow, expected value, pot odds and implied odds, outs and the rule of 2 & 4, position, preflop and postflop play, board texture, bet sizing, semi-bluffs, check-raises, slow-plays and bluffing.
@@ -42,6 +44,10 @@ npm run dev
 ```
 
 Production build: `npm run build` (output in `dist/`).
+
+### Demo mode
+
+`VITE_DEMO_MODE=true npm run build` creates a backend-free build: the user service keeps progress in `localStorage`, all lessons are unlocked and routing uses hash URLs so it works on static hosting. The `deploy-demo` workflow publishes this build to GitHub Pages on every push to `main`.
 
 ## Configuration
 

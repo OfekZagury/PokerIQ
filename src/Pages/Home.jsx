@@ -11,6 +11,7 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import DailyUnlockTimer from "@/Components/DailyUnlockTimer";
 import { track } from "@/lib/analytics";
+import { DEMO_MODE } from "@/lib/demo";
 
 
 
@@ -218,6 +219,7 @@ export default function Home() {
 };
 
   function canAccessGame(gameId) {
+  if (DEMO_MODE) return true; // the live demo opens every lesson
   const u = user;
   if (!u) return false;
 
@@ -301,7 +303,7 @@ export default function Home() {
                 Poker Learning Path
             </h1>
 
-          {isLoggedIn && (
+          {isLoggedIn && !DEMO_MODE && (
               <div className="mb-4">
                 <DailyUnlockTimer nextUnlockAt={user?.next_unlock_at} />
               </div>
@@ -373,7 +375,9 @@ export default function Home() {
                   helps you retain concepts and build skills progressively.
                 </p>
                 <div className="text-sm text-green-300">
-                  Come back tomorrow for new challenges!
+                  {DEMO_MODE
+                    ? "In this live demo every lesson is open, so you can explore the whole path."
+                    : "Come back tomorrow for new challenges!"}
                 </div>
               </div>
             </motion.div>
